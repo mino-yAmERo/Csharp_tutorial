@@ -12,6 +12,15 @@ namespace Tutorial
         public string hero_attribute;
         public int hero_movespeed;
         public float hero_magical_defense;
+
+        public void getHeroInfo ()
+        {
+            Console.WriteLine("This hero's name : " + this.hero_name);
+            Console.WriteLine(this.hero_name+ "'s attribute : " + this.hero_attribute);
+            Console.WriteLine(this.hero_name+ "'s movespeed : " + this.hero_movespeed);
+            Console.WriteLine(this.hero_name+ "'s magical defense : " + this.hero_magical_defense);
+            Console.WriteLine("****************************************");
+        }
         public float receiveMagicDmg (float dmg)
         {
             if (dmg < 0)
@@ -21,7 +30,9 @@ namespace Tutorial
             } 
             else
             {
-                return dmg - (dmg * hero_magical_defense);
+                float true_dmg = dmg - (dmg * hero_magical_defense);
+                Console.WriteLine(this.hero_name + " receive "+true_dmg);
+                return true_dmg;
             }
         }
 
@@ -29,10 +40,29 @@ namespace Tutorial
 
         public Dota2Hero()
         {
-            hero_name = string.Empty;
+            hero_name = "blank";
             hero_attribute = "Strength";
             hero_movespeed = 300;
             hero_magical_defense = 0.25F;
         }
+
+        //create a class Constructor for the dota2Hero class with a parameter
+        public Dota2Hero(string name)
+        {
+            hero_name = name;
+            hero_attribute = "Strength";
+            hero_movespeed = 300;
+            hero_magical_defense = 0.25F;
+        }
+
+        //create a class Constructor for the dota2Hero class with multiple parameters
+        public Dota2Hero(string name, string attribute, int movespeed, float magic_def)
+        {
+            hero_name = name;
+            hero_attribute = attribute;
+            hero_movespeed = movespeed;
+            hero_magical_defense = magic_def;
+        }
+
     }
 }

@@ -41,16 +41,18 @@ namespace Tutorial
 
 
             //create a new object from class Dota2Hero
-            Dota2Hero alchemist = new Dota2Hero();
-            Console.WriteLine("This hero's name : " + alchemist.hero_name);
-            Console.WriteLine("This hero's attribute : "+ alchemist.hero_attribute);
-            Console.WriteLine("This hero's movespeed : "+ alchemist.hero_movespeed);
-            float dmg = alchemist.receiveMagicDmg(500F);
-            Console.WriteLine("alchemist recieve dmg : " + dmg);
-            Console.WriteLine("alchemist recieve dmg : " + alchemist.receiveMagicDmg(-500F));
-            Console.WriteLine("alchemist recieve dmg : " + alchemist.receiveMagicDmg(-500));
-            Console.WriteLine("****************************************");
 
+            //Default Constructor
+            Dota2Hero alchemist = new Dota2Hero(); 
+            alchemist.getHeroInfo();
+            float dmg = alchemist.receiveMagicDmg(500F);
+
+            //Constructor with name parameter
+            Dota2Hero invoker = new Dota2Hero("Invoker"); 
+            invoker.getHeroInfo();
+
+            //Constructor with multi parameters
+            Dota2Hero pangolier = new Dota2Hero("Pangolier", "Agi", 300, 0.25F); 
         }
     }
 }
